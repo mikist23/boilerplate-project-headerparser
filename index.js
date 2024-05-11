@@ -36,7 +36,15 @@ app.get('/api/whoami', function (req, res) {
   const language = req.headers['accept-language']; // get the preferred language of the client
   const software = req.headers['user-agent']; // get the software information of the client
 
-  
+  // create a JSON object with the extracted information
+  const clientInfo = {
+    ipaddress: ipAddress,
+    language: language,
+    software: software
+  };
+
+  // send the JSON object as the response
+  res.json(clientInfo);
 });
 
 // listen for requests :)
